@@ -1,0 +1,202 @@
+<file_definition min_digits="4" name="@expname@_@freq@_@startdate@_@enddate@" sync_freq="1d" type="one_file">
+
+
+   <file_group id="id_file_group_pisces">
+
+
+    <file id="file31" name_suffix="_pisces_grid_T_3D" output_freq="1y">
+
+     <field enabled="False" field_ref="BFe_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_bfe" name="bfe" operation="average" unit="mol m-3">    @BFe_E3T / @e3t * 1e-3 + @SFe_E3T / @e3t * 1e-3                     </field>
+     <field enabled="False" field_ref="GSi_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_bsi" name="bsi" operation="average" unit="mol m-3">    @GSi_E3T / @e3t * 1e-3                                              </field>
+     <field enabled="False" field_ref="CaCO3_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_calc" name="calc" operation="average" unit="mol m-3">    @CaCO3_E3T / @e3t * 1e-3                                            </field>
+     <field enabled="False" field_ref="NCHL_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_chl" name="chl" operation="average" unit="kg m-3">    @NCHL_E3T / @e3t * 1e-3 + @DCHL_E3T / @e3t * 1e-3                   </field>
+     <field enabled="False" field_ref="DCHL_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_chldiat" name="chldiat" operation="average" unit="kg m-3">    @DCHL_E3T / @e3t * 1e-3                                             </field>
+     <field enabled="False" field_ref="NCHL_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_chlmisc" name="chlmisc" operation="average" unit="kg m-3">    @NCHL_E3T / @e3t * 1e-3                                             </field>
+     <field enabled="False" field_ref="CO3" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_co3" name="co3" operation="average" unit="mol m-3">                                                                        </field>
+     <field enabled="False" field_ref="CO3sat" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_co3satcalc" name="co3satcalc" operation="average" unit="mol m-3">                                                                        </field>
+     <field enabled="False" field_ref="DCAL" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_dcalc" name="dcalc" operation="average" unit="mol m-3 s-1">                                                                        </field>
+     <field enabled="False" field_ref="POC_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_detoc" name="detoc" operation="average" unit="mol m-3">    @POC_E3T / @e3t * 1e-3 + @GOC_E3T / @e3t * 1e-3                     </field>
+     <field enabled="False" field_ref="Fer_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_dfe" name="dfe" operation="average" unit="mol m-3">    @Fer_E3T / @e3t * 1e-3                                              </field>
+     <field enabled="False" field_ref="DIC_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_dissic" name="dissic" operation="average" unit="mol m-3">    @DIC_E3T / @e3t * 1e-3                                              </field>
+     <field enabled="False" field_ref="DIC_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_dissicnat" name="dissicnat" operation="average" unit="mol m-3">    @DIC_E3T / @e3t * 1e-3                                              </field>
+     <field enabled="False" field_ref="DOC_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_dissoc" name="dissoc" operation="average" unit="mol m-3">    @DOC_E3T / @e3t * 1e-3                                              </field>
+     <field enabled="False" field_ref="EXPC" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_expc" name="expc" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="EXPCAL" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_expcalc" name="expcalc" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="EXPFE" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_expfe" name="expfe" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="EXPC" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_expn" name="expn" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="EXPC" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_expp" name="expp" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="EXPSI" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_expsi" name="expsi" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="GRAZ1" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_graz" name="graz" operation="average" unit="mol m-3 s-1">     this + GRAZ2                                                       </field>
+     <field enabled="False" field_ref="NH4_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_nh4" name="nh4" operation="average" unit="mol m-3">    @NH4_E3T / @e3t * 1e-3                                              </field>
+     <field enabled="False" field_ref="NO3_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_no3" name="no3" operation="average" unit="mol m-3">    @NO3_E3T / @e3t * 1e-3                                              </field>
+     <field enabled="False" field_ref="O2_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_o2" name="o2" operation="average" unit="mol m-3">    @O2_E3T / @e3t * 1e-3                                               </field>
+     <field enabled="False" field_ref="PFeN" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_pbfe" name="pbfe" operation="average" unit="mol m-3 s-1">     this + PFeD                                                        </field>
+     <field enabled="False" field_ref="PBSi" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_pbsi" name="pbsi" operation="average" unit="mol m-3 s-1">                                                                        </field>
+     <field enabled="False" field_ref="PCAL" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_pcalc" name="pcalc" operation="average" unit="mol m-3 s-1">                                                                        </field>
+     <field enabled="False" field_ref="PH" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_ph" name="ph" operation="average" unit="1">                                                                        </field>
+     <field enabled="False" field_ref="PHY_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_phyc" name="phyc" operation="average" unit="mol m-3">    @PHY_E3T / @e3t * 1e-3 + @PHY2_E3T / @e3t * 1e-3                    </field>
+     <field enabled="False" field_ref="PHY2_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_phydiat" name="phydiat" operation="average" unit="mol m-3">    @PHY2_E3T / @e3t * 1e-3                                             </field>
+     <field enabled="False" field_ref="NFe_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_phyfe" name="phyfe" operation="average" unit="mol m-3">    @NFe_E3T / @e3t * 1e-3 + @DFe_E3T / @e3t * 1e-3                     </field>
+     <field enabled="False" field_ref="PHY_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_phymisc" name="phymisc" operation="average" unit="mol m-3">    @PHY_E3T / @e3t * 1e-3                                              </field>
+     <field enabled="False" field_ref="DSi_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_physi" name="physi" operation="average" unit="mol m-3">    @DSi_E3T / @e3t * 1e-3                                              </field>
+     <field enabled="False" field_ref="TPNEW" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_pnitrate" name="pnitrate" operation="average" unit="mol m-3 s-1">                                                                        </field>
+     <field enabled="False" field_ref="PO4_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_po4" name="po4" operation="average" unit="mol m-3">    @PO4_E3T / @e3t * 1e-3                                              </field>
+     <field enabled="False" field_ref="TPP" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_pp" name="pp" operation="average" unit="mol m-3 s-1">                                                                        </field>
+     <field enabled="False" field_ref="PPPHY2" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_ppdiat" name="ppdiat" operation="average" unit="mol m-3 s-1">                                                                        </field>
+     <field enabled="False" field_ref="PPPHY" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_ppmisc" name="ppmisc" operation="average" unit="mol m-3 s-1">                                                                        </field>
+     <field enabled="False" field_ref="REMIN" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_remoc" name="remoc" operation="average" unit="mol m-3 s-1">                                                                        </field>
+     <field enabled="False" field_ref="Si_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_si" name="si" operation="average" unit="mol m-3">    @Si_E3T / @e3t * 1e-3                                               </field>
+     <field enabled="False" field_ref="Alkalini_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_talk" name="talk" operation="average" unit="mol m-3">    @Alkalini_E3T / @e3t * 1e-3                                         </field>
+     <field enabled="False" field_ref="Alkalini_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_talknat" name="talknat" operation="average" unit="mol m-3">    @Alkalini_E3T / @e3t * 1e-3                                         </field>
+     <field enabled="False" field_ref="ZOO2_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_zmeso" name="zmeso" operation="average" unit="mol m-3">    @ZOO2_E3T / @e3t * 1e-3                                             </field>
+     <field enabled="False" field_ref="ZOO_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_zmicro" name="zmicro" operation="average" unit="mol m-3">    @ZOO_E3T / @e3t * 1e-3                                              </field>
+     <field enabled="False" field_ref="ZOO_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_zooc" name="zooc" operation="average" unit="mol m-3">    @ZOO_E3T / @e3t * 1e-3 + @ZOO2_E3T / @e3t * 1e-3                    </field>
+
+    </file>
+
+
+    <file id="file32" name_suffix="_pisces_grid_T_2D" output_freq="1y">
+
+     <field enabled="False" field_ref="Cflx" freq_op="1ts" grid_ref="grid_T_2D" id="id_1y_fgco2" name="fgco2" operation="average" unit="kg m-2 s-1">     this * 12 * 1e-3                                                   </field>
+
+    </file>
+
+
+    <file id="file33" name_suffix="_pisces_grid_T_SFC" output_freq="1d">
+
+     <field enabled="False" field_ref="NCHLSFC_E3T" freq_op="1d" grid_ref="grid_T_SFC" id="id_1d_chlos" name="chlos" operation="average" unit="kg m-3">    @NCHLSFC_E3T / @E3TSFC * 1e-3 + @DCHLSFC_E3T / @E3TSFC * 1e-3       </field>
+     <field enabled="False" field_ref="PHYSFC_E3T" freq_op="1d" grid_ref="grid_T_SFC" id="id_1d_phycos" name="phycos" operation="average" unit="mol m-3">    @PHYSFC_E3T / @E3TSFC * 1e-3 + @PHY2SFC_E3T / @E3TSFC * 1e-3        </field>
+
+    </file>
+
+
+    <file id="file34" name_suffix="_pisces_grid_T_3D" output_freq="1mo">
+
+     <field enabled="False" field_ref="BFe_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_bfe" name="bfe" operation="average" unit="mol m-3">    @BFe_E3T / @e3t * 1e-3 + @SFe_E3T / @e3t * 1e-3                     </field>
+     <field enabled="False" field_ref="GSi_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_bsi" name="bsi" operation="average" unit="mol m-3">    @GSi_E3T / @e3t * 1e-3                                              </field>
+     <field enabled="False" field_ref="CaCO3_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_calc" name="calc" operation="average" unit="mol m-3">    @CaCO3_E3T / @e3t * 1e-3                                            </field>
+     <field enabled="True" field_ref="NCHL_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_chl" name="chl" operation="average" unit="kg m-3">    @NCHL_E3T / @e3t * 1e-3 + @DCHL_E3T / @e3t * 1e-3                   </field>
+     <field enabled="False" field_ref="DCHL_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_chldiat" name="chldiat" operation="average" unit="kg m-3">    @DCHL_E3T / @e3t * 1e-3                                             </field>
+     <field enabled="False" field_ref="NCHL_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_chlmisc" name="chlmisc" operation="average" unit="kg m-3">    @NCHL_E3T / @e3t * 1e-3                                             </field>
+     <field enabled="False" field_ref="CO3" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_co3" name="co3" operation="average" unit="mol m-3">                                                                        </field>
+     <field enabled="False" field_ref="CO3sat" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_co3satcalc" name="co3satcalc" operation="average" unit="mol m-3">                                                                        </field>
+     <field enabled="False" field_ref="POC_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_detoc" name="detoc" operation="average" unit="mol m-3">    @POC_E3T / @e3t * 1e-3 + @GOC_E3T / @e3t * 1e-3                     </field>
+     <field enabled="False" field_ref="Fer_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_dfe" name="dfe" operation="average" unit="mol m-3">    @Fer_E3T / @e3t * 1e-3                                              </field>
+     <field enabled="False" field_ref="DIC_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_dissic" name="dissic" operation="average" unit="mol m-3">    @DIC_E3T / @e3t * 1e-3                                              </field>
+     <field enabled="False" field_ref="DIC_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_dissicnat" name="dissicnat" operation="average" unit="mol m-3">    @DIC_E3T / @e3t * 1e-3                                              </field>
+     <field enabled="False" field_ref="DOC_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_dissoc" name="dissoc" operation="average" unit="mol m-3">    @DOC_E3T / @e3t * 1e-3                                              </field>
+     <field enabled="False" field_ref="EXPC" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_expc" name="expc" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="GRAZ1" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_graz" name="graz" operation="average" unit="mol m-3 s-1">     this + GRAZ2                                                       </field>
+     <field enabled="False" field_ref="DOC_E3T" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_intdoc" name="intdoc" operation="average" unit="kg m-2">                                                                        </field>
+     <field enabled="False" field_ref="NH4_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_nh4" name="nh4" operation="average" unit="mol m-3">    @NH4_E3T / @e3t * 1e-3                                              </field>
+     <field enabled="False" field_ref="NO3_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_no3" name="no3" operation="average" unit="mol m-3">    @NO3_E3T / @e3t * 1e-3                                              </field>
+     <field enabled="True" field_ref="O2_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_o2" name="o2" operation="average" unit="mol m-3">    @O2_E3T / @e3t * 1e-3                                               </field>
+     <field enabled="False" field_ref="PH" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_ph" name="ph" operation="average" unit="1">                                                                        </field>
+     <field enabled="False" field_ref="PHY_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_phyc" name="phyc" operation="average" unit="mol m-3">    @PHY_E3T / @e3t * 1e-3 + @PHY2_E3T / @e3t * 1e-3                    </field>
+     <field enabled="False" field_ref="PHY2_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_phydiat" name="phydiat" operation="average" unit="mol m-3">    @PHY2_E3T / @e3t * 1e-3                                             </field>
+     <field enabled="False" field_ref="NFe_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_phyfe" name="phyfe" operation="average" unit="mol m-3">    @NFe_E3T / @e3t * 1e-3 + @DFe_E3T / @e3t * 1e-3                     </field>
+     <field enabled="False" field_ref="PHY_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_phymisc" name="phymisc" operation="average" unit="mol m-3">    @PHY_E3T / @e3t * 1e-3                                              </field>
+     <field enabled="False" field_ref="DSi_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_physi" name="physi" operation="average" unit="mol m-3">    @DSi_E3T / @e3t * 1e-3                                              </field>
+     <field enabled="False" field_ref="PO4_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_po4" name="po4" operation="average" unit="mol m-3">    @PO4_E3T / @e3t * 1e-3                                              </field>
+     <field enabled="False" field_ref="TPP" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_pp" name="pp" operation="average" unit="mol m-3 s-1">                                                                        </field>
+     <field enabled="False" field_ref="Si_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_si" name="si" operation="average" unit="mol m-3">    @Si_E3T / @e3t * 1e-3                                               </field>
+     <field enabled="True" field_ref="Alkalini_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_talk" name="talk" operation="average" unit="mol m-3">    @Alkalini_E3T / @e3t * 1e-3                                         </field>
+     <field enabled="False" field_ref="Alkalini_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_talknat" name="talknat" operation="average" unit="mol m-3">    @Alkalini_E3T / @e3t * 1e-3                                         </field>
+     <field enabled="False" field_ref="ZOO2_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_zmeso" name="zmeso" operation="average" unit="mol m-3">    @ZOO2_E3T / @e3t * 1e-3                                             </field>
+     <field enabled="False" field_ref="ZOO_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_zmicro" name="zmicro" operation="average" unit="mol m-3">    @ZOO_E3T / @e3t * 1e-3                                              </field>
+     <field enabled="False" field_ref="ZOO_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_zooc" name="zooc" operation="average" unit="mol m-3">    @ZOO_E3T / @e3t * 1e-3 + @ZOO2_E3T / @e3t * 1e-3                    </field>
+     <field enabled="False" field_ref="EXPCAL" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_expcalc" name="expcalc" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="EXPFE" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_expfe" name="expfe" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="EXPC" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_expn" name="expn" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="EXPC" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_expp" name="expp" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="EXPSI" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_expsi" name="expsi" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="PPPHY2" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_ppdiat" name="ppdiat" operation="average" unit="mol m-3 s-1">                                                                        </field>
+     <field enabled="False" field_ref="PPPHY" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_ppmisc" name="ppmisc" operation="average" unit="mol m-3 s-1">                                                                        </field>
+
+    </file>
+
+
+    <file id="file35" name_suffix="_pisces_grid_T_2D" output_freq="1mo">
+
+     <field enabled="False" field_ref="Dpco2" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_dpco2" name="dpco2" operation="average" unit="Pa">     this * 0.101325                                                    </field>
+     <field enabled="False" field_ref="Dpo2" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_dpo2" name="dpo2" operation="average" unit="Pa">     this * 0.101325                                                    </field>
+     <field enabled="False" field_ref="EPC100" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_epc100" name="epc100" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="EPCAL100" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_epcalc100" name="epcalc100" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="EPFE100" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_epfe100" name="epfe100" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="EPSI100" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_epsi100" name="epsi100" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="INTdtAlk" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_fbddtalk" name="fbddtalk" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="INTdtDIC" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_fbddtdic" name="fbddtdic" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="INTdtFer" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_fbddtdife" name="fbddtdife" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="INTdtDIN" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_fbddtdin" name="fbddtdin" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="INTdtDIP" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_fbddtdip" name="fbddtdip" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="INTdtSil" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_fbddtdisi" name="fbddtdisi" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="True" field_ref="Cflx" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_fgco2" name="fgco2" operation="average" unit="kg m-2 s-1">     this * 12 * 1e-3                                                   </field>
+     <field enabled="False" field_ref="Oflx" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_fgo2" name="fgo2" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="SedCal" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_fric" name="fric" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="Sdenit" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_frn" name="frn" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="SedC" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_froc" name="froc" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="IronSupply" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_fsfe" name="fsfe" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="NitrSupply" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_fsn" name="fsn" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="INTDIC" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_intdic" name="intdic" operation="average" unit="kg m-2">                                                                        </field>
+     <field enabled="False" field_ref="INTPBFE" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_intpbfe" name="intpbfe" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="INTPBSI" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_intpbsi" name="intpbsi" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="INTPCAL" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_intpcalcite" name="intpcalcite" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="INTNFIX" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_intpn2" name="intpn2" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="INTPP" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_intpp" name="intpp" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="INTPCAL" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_intppcalc" name="intppcalc" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="INTPPPHY2" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_intppdiat" name="intppdiat" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="INTPPPHY" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_intppmisc" name="intppmisc" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="INTPNEW" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_intppnitrate" name="intppnitrate" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="O2MIN" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_o2min" name="o2min" operation="average" unit="mol m-3">                                                                        </field>
+     <field enabled="True" field_ref="pCO2sea" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_spco2" name="spco2" operation="average" unit="Pa">      this * 0.101325                                                   </field>
+     <field enabled="False" field_ref="ZO2MIN" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_zo2min" name="zo2min" operation="average" unit="m">                                                                        </field>
+
+    </file>
+
+
+    <file id="file36" name_suffix="_pisces_grid_T_SFC" output_freq="1mo">
+
+     <field enabled="False" field_ref="BFeSFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_bfeos" name="bfeos" operation="average" unit="mol m-3">    @BFeSFC_E3T / @E3TSFC * 1e-3 + @SFeSFC_E3T / @E3TSFC * 1e-3         </field>
+     <field enabled="False" field_ref="GSiSFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_bsios" name="bsios" operation="average" unit="mol m-3">    @GSiSFC_E3T / @E3TSFC * 1e-3                                        </field>
+     <field enabled="False" field_ref="CaCO3SFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_calcos" name="calcos" operation="average" unit="mol m-3">    @CaCO3SFC_E3T / @E3TSFC * 1e-3                                      </field>
+     <field enabled="False" field_ref="DCHLSFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_chldiatos" name="chldiatos" operation="average" unit="kg m-3">    @DCHLSFC_E3T / @E3TSFC * 1e-3                                       </field>
+     <field enabled="False" field_ref="NCHLSFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_chlmiscos" name="chlmiscos" operation="average" unit="kg m-3">    @NCHLSFC_E3T / @E3TSFC * 1e-3                                       </field>
+     <field enabled="True" field_ref="NCHLSFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_chlos" name="chlos" operation="average" unit="kg m-3">    @NCHLSFC_E3T / @E3TSFC * 1e-3 + @DCHLSFC_E3T / @E3TSFC * 1e-3       </field>
+     <field enabled="False" field_ref="CO3SFC" freq_op="1ts" grid_ref="grid_T_SFC" id="id_1m_co3os" name="co3os" operation="average" unit="mol m-3">                                                                        </field>
+     <field enabled="False" field_ref="CO3satSFC" freq_op="1ts" grid_ref="grid_T_SFC" id="id_1m_co3satcalcos" name="co3satcalcos" operation="average" unit="mol m-3">                                                                        </field>
+     <field enabled="False" field_ref="POCSFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_detocos" name="detocos" operation="average" unit="mol m-3">    @POCSFC_E3T / @E3TSFC * 1e-3 + @GOCSFC_E3T / @E3TSFC * 1e-3         </field>
+     <field enabled="False" field_ref="FerSFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_dfeos" name="dfeos" operation="average" unit="mol m-3">    @FerSFC_E3T / @E3TSFC * 1e-3                                        </field>
+     <field enabled="False" field_ref="DICSFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_dissicnatos" name="dissicnatos" operation="average" unit="mol m-3">    @DICSFC_E3T / @E3TSFC * 1e-3                                        </field>
+     <field enabled="False" field_ref="DICSFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_dissicos" name="dissicos" operation="average" unit="mol m-3">    @DICSFC_E3T / @E3TSFC * 1e-3                                        </field>
+     <field enabled="False" field_ref="DOCSFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_dissocos" name="dissocos" operation="average" unit="mol m-3">    @DOCSFC_E3T / @E3TSFC * 1e-3                                        </field>
+     <field enabled="False" field_ref="LDFeSFC" freq_op="1ts" grid_ref="grid_T_SFC" id="id_1m_limfediat" name="limfediat" operation="average" unit="1">                                                                        </field>
+     <field enabled="False" field_ref="LNFeSFC" freq_op="1ts" grid_ref="grid_T_SFC" id="id_1m_limfemisc" name="limfemisc" operation="average" unit="1">                                                                        </field>
+     <field enabled="False" field_ref="LDlightSFC" freq_op="1ts" grid_ref="grid_T_SFC" id="id_1m_limirrdiat" name="limirrdiat" operation="average" unit="1">                                                                        </field>
+     <field enabled="False" field_ref="LNlightSFC" freq_op="1ts" grid_ref="grid_T_SFC" id="id_1m_limirrmisc" name="limirrmisc" operation="average" unit="1">                                                                        </field>
+     <field enabled="False" field_ref="LDnutSFC" freq_op="1ts" grid_ref="grid_T_SFC" id="id_1m_limndiaz" name="limndiaz" operation="average" unit="1">                                                                        </field>
+     <field enabled="False" field_ref="LNnutSFC" freq_op="1ts" grid_ref="grid_T_SFC" id="id_1m_limnmisc" name="limnmisc" operation="average" unit="1">                                                                        </field>
+     <field enabled="False" field_ref="NH4SFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_nh4os" name="nh4os" operation="average" unit="mol m-3">    @NH4SFC_E3T / @E3TSFC * 1e-3                                        </field>
+     <field enabled="False" field_ref="NO3SFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_no3os" name="no3os" operation="average" unit="mol m-3">    @NO3SFC_E3T / @E3TSFC * 1e-3                                        </field>
+     <field enabled="True" field_ref="O2SFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_o2os" name="o2os" operation="average" unit="mol m-3">    @O2SFC_E3T / @E3TSFC * 1e-3                                         </field>
+     <field enabled="False" field_ref="PHSFC" freq_op="1ts" grid_ref="grid_T_SFC" id="id_1m_phos" name="phos" operation="average" unit="1">                                                                        </field>
+     <field enabled="False" field_ref="PHYSFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_phycos" name="phycos" operation="average" unit="mol m-3">    @PHYSFC_E3T / @E3TSFC * 1e-3 + @PHY2SFC_E3T / @E3TSFC * 1e-3        </field>
+     <field enabled="False" field_ref="PHY2SFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_phydiatos" name="phydiatos" operation="average" unit="mol m-3">    @PHY2SFC_E3T / @E3TSFC * 1e-3                                       </field>
+     <field enabled="False" field_ref="NFeSFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_phyfeos" name="phyfeos" operation="average" unit="mol m-3">    @NFeSFC_E3T / @E3TSFC * 1e-3 + @DFeSFC_E3T / @E3TSFC * 1e-3         </field>
+     <field enabled="False" field_ref="PHYSFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_phymiscos" name="phymiscos" operation="average" unit="mol m-3">    @PHYSFC_E3T / @E3TSFC * 1e-3                                        </field>
+     <field enabled="False" field_ref="DSiSFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_physios" name="physios" operation="average" unit="mol m-3">    @DSiSFC_E3T / @E3TSFC * 1e-3                                        </field>
+     <field enabled="False" field_ref="PO4SFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_po4os" name="po4os" operation="average" unit="mol m-3">    @PO4SFC_E3T / @E3TSFC * 1e-3                                        </field>
+     <field enabled="False" field_ref="TPPSFC" freq_op="1ts" grid_ref="grid_T_SFC" id="id_1m_ppos" name="ppos" operation="average" unit="mol m-3 s-1">                                                                        </field>
+     <field enabled="False" field_ref="SiSFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_sios" name="sios" operation="average" unit="mol m-3">    @SiSFC_E3T / @E3TSFC * 1e-3                                         </field>
+     <field enabled="False" field_ref="AlkaliniSFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_talknatos" name="talknatos" operation="average" unit="mol m-3">    @AlkaliniSFC_E3T / @E3TSFC * 1e-3                                   </field>
+     <field enabled="False" field_ref="AlkaliniSFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_talkos" name="talkos" operation="average" unit="mol m-3">    @AlkaliniSFC_E3T / @E3TSFC * 1e-3                                   </field>
+     <field enabled="False" field_ref="ZOO2SFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_zmesoos" name="zmesoos" operation="average" unit="mol m-3">    @ZOO2SFC_E3T / @E3TSFC * 1e-3                                       </field>
+     <field enabled="False" field_ref="ZOOSFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_zmicroos" name="zmicroos" operation="average" unit="mol m-3">    @ZOOSFC_E3T / @E3TSFC * 1e-3                                        </field>
+     <field enabled="False" field_ref="ZOOSFC_E3T" freq_op="1mo" grid_ref="grid_T_SFC" id="id_1m_zoocos" name="zoocos" operation="average" unit="mol m-3">    @ZOOSFC_E3T / @E3TSFC * 1e-3 + @ZOO2SFC_E3T / @E3TSFC * 1e-3        </field>
+
+    </file>
+
+
+   </file_group>
+
+
+  </file_definition>

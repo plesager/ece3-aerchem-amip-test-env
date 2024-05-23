@@ -1,0 +1,24 @@
+ 
+EC-Earth3 IFS volume estimates of generated output:
+  Volume estimate of the spectral + gridpoint GRIB files for T255L91 grid: 508.829652 GB/yr
+  Volume estimate of the spectral + gridpoint GRIB files for T511L91 grid: 1956.07518 GB/yr
+
+  Number of spectral  GRIB messages per month: 111507
+  Number of gridpoint GRIB messages per month: 153178
+
+ 
+EC-Earth3 NEMO volume estimates of generated output:
+  Volume estimate for the ORCA1L75   grid: 5.51303 GB/yr
+  Volume estimate for the ORCA025L75 grid: 73.84896 GB/yr
+  With    12821 horizontal data slices per year across the vertical and time dimension.
+
+ 
+EC-Earth3 TM5 Volume estimates of generated output:
+  Volume estimate for the TM5 3x2 degrees grid: 4.295736 GB/yr
+  With   107393 horizontal data slices per year across the vertical and time dimension.
+
+ 
+EC-Earth3 LPJ-GUESS Volume estimates of generated output:
+  Volume estimate for the LPJ-GUESS T255 grid: 0.5982 GB/yr
+  With     4985 horizontal data slices per year across the vertical and time dimension.
+

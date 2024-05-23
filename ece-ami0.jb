@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#SBATCH --ntasks=433
+#SBATCH --qos=np
+#SBATCH --output=out/ami0.%j.out
+#SBATCH --hint=nomultithread
+
+mkdir -p out
+
+export OMP_NUM_THREADS=1
+./ece-ami0.sh
+

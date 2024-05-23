@@ -1,0 +1,273 @@
+<file_definition min_digits="4" name="@expname@_@freq@_@startdate@_@enddate@" sync_freq="1d" type="one_file">
+
+
+   <file_group id="id_file_group_opa">
+
+
+    <file id="file10" name_suffix="_opa_grid_T_3D" output_freq="1y">
+
+     <field enabled="False" field_ref="CFC11_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_cfc11" name="cfc11" operation="average" unit="mol m-3">    @CFC11_E3T / @e3t                                                   </field>
+     <field enabled="False" field_ref="CFC12_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_cfc12" name="cfc12" operation="average" unit="mol m-3">    @CFC12_E3T / @e3t                                                   </field>
+     <field enabled="False" field_ref="ttrd_zdfp_e3t" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_ocontempdiff" name="ocontempdiff" operation="average" unit="W m-2">     this * $cpocean * $rau0                                            </field>
+     <field enabled="False" field_ref="ttrd_eivad_e3t" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_ocontemppadvect" name="ocontemppadvect" operation="average" unit="W m-2">     this * $cpocean * $rau0                                            </field>
+     <field enabled="False" field_ref="ttrd_iso_e3t" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_ocontemppmdiff" name="ocontemppmdiff" operation="average" unit="W m-2">     this * $cpocean * $rau0                                            </field>
+     <field enabled="False" field_ref="ttrd_totad_e3t" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_ocontemprmadvect" name="ocontemprmadvect" operation="average" unit="W m-2">     this * $cpocean * $rau0                                            </field>
+     <field enabled="False" field_ref="ttrd_tot_e3t" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_ocontemptend" name="ocontemptend" operation="average" unit="W m-2">     this * $cpocean * $rau0                                            </field>
+     <field enabled="False" field_ref="strd_zdfp_e3t" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_osaltdiff" name="osaltdiff" operation="average" unit="kg m-2 s-1">     this * $rau0                                                       </field>
+     <field enabled="False" field_ref="strd_eivad_e3t" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_osaltpadvect" name="osaltpadvect" operation="average" unit="kg m-2 s-1">     this * $rau0                                                       </field>
+     <field enabled="False" field_ref="strd_iso_e3t" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_osaltpmdiff" name="osaltpmdiff" operation="average" unit="kg m-2 s-1">     this * $rau0                                                       </field>
+     <field enabled="False" field_ref="strd_totad_e3t" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_osaltrmadvect" name="osaltrmadvect" operation="average" unit="kg m-2 s-1">     this * $rau0                                                       </field>
+     <field enabled="False" field_ref="strd_tot_e3t" freq_op="1ts" grid_ref="grid_T_3D" id="id_1y_osalttend" name="osalttend" operation="average" unit="kg m-2 s-1">     this * $rau0                                                       </field>
+     <field enabled="False" field_ref="SF6_E3T" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_sf6" name="sf6" operation="average" unit="mol m-3">    @SF6_E3T / @e3t                                                     </field>
+     <field enabled="False" field_ref="masscello" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_masscello" name="masscello" operation="once" unit="kg m-2">                                                                        </field>
+     <field enabled="False" field_ref="e3t" freq_op="1y" grid_ref="grid_T_3D" id="id_1y_thkcello" name="thkcello" operation="once" unit="m">                                                                        </field>
+
+    </file>
+
+
+    <file id="file11" name_suffix="_opa_grid_T_2D" output_freq="1y">
+
+     <field enabled="False" field_ref="somint" freq_op="1ts" grid_ref="grid_T_2D" id="id_1y_somint" name="somint" operation="average" unit="g m-2">     this * $convSpsu                                                   </field>
+     <field enabled="False" field_ref="tnpeo" freq_op="1ts" grid_ref="grid_T_2D" id="id_1y_tnpeo" name="tnpeo" operation="average" unit="W m-2">                                                                        </field>
+     <field enabled="True" field_ref="areacello" freq_op="1y" grid_ref="grid_T_2D" id="id_1y_areacello" name="areacello" operation="once" unit="m2">                                                                        </field>
+     <field enabled="True" field_ref="basins" freq_op="1y" grid_ref="grid_T_2D" id="id_1y_basin" name="basin" operation="once" unit="1">                                                                        </field>
+     <field enabled="True" field_ref="hfgeou" freq_op="1y" grid_ref="grid_T_2D" id="id_1y_hfgeou" name="hfgeou" operation="once" unit="W m-2">                                                                        </field>
+     <field enabled="True" field_ref="iceconc_pct" freq_op="1y" grid_ref="grid_T_2D" id="id_1y_sftof" name="sftof" operation="once" unit="%">     100 - this                                                         </field>
+
+    </file>
+
+
+    <file id="file12" name_suffix="_opa_grid_W_3D" output_freq="1y">
+
+     <field enabled="False" field_ref="avt_e3w" freq_op="1y" grid_ref="grid_W_3D" id="id_1y_difvho" name="difvho" operation="average" unit="m2 s-1">    @avt_e3w / @e3w                                                     </field>
+     <field enabled="False" field_ref="avs_e3w" freq_op="1y" grid_ref="grid_W_3D" id="id_1y_difvso" name="difvso" operation="average" unit="m2 s-1">    @avs_e3w / @e3w                                                     </field>
+
+    </file>
+
+
+    <file id="file13" name_suffix="_opa_grid_T_2D" output_freq="3h">
+
+     <field enabled="True" field_ref="sst_pot" freq_op="3h" grid_ref="grid_T_2D" id="id_3h_tos" name="tos" operation="instant" unit="degC">                                                                        </field>
+
+    </file>
+
+
+    <file id="file14" name_suffix="_opa_grid_T_2D" output_freq="1d">
+
+     <field enabled="True" field_ref="mldkz5" freq_op="1ts" grid_ref="grid_T_2D" id="id_1d_omldamax" name="omldamax" operation="maximum" unit="m">                                                                        </field>
+     <field enabled="False" field_ref="sss" freq_op="1ts" grid_ref="grid_T_2D" id="id_1d_sos" name="sos" operation="average" unit="0.001">     this * $convSpsu                                                   </field>
+     <field enabled="False" field_ref="sss2" freq_op="1ts" grid_ref="grid_T_2D" id="id_1d_sossq" name="sossq" operation="average" unit="1e-06">     this * $convSpsu * $convSpsu                                       </field>
+     <field enabled="True" field_ref="sst_pot" freq_op="1ts" grid_ref="grid_T_2D" id="id_1d_tos" name="tos" operation="average" unit="degC">                                                                        </field>
+     <field enabled="True" field_ref="sst_pot2" freq_op="1ts" grid_ref="grid_T_2D" id="id_1d_tossq" name="tossq" operation="average" unit="degC2">                                                                        </field>
+     <field enabled="False" field_ref="mldr10_3" freq_op="1ts" grid_ref="grid_T_2D" id="id_1d_mlotst" name="mlotst" operation="average" unit="m">                                                                        </field>
+     <field enabled="False" field_ref="20d" freq_op="1ts" grid_ref="grid_T_2D" id="id_1d_t20d" name="t20d" operation="average" unit="m">                                                                        </field>
+
+    </file>
+
+
+    <file id="file15" name_suffix="_opa_grid_T_3D" output_freq="1mo">
+
+     <field enabled="False" field_ref="Age_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_agessc" name="agessc" operation="average" unit="yr">    @Age_E3T / @e3t                                                     </field>
+     <field enabled="True" field_ref="toce" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_bigthetao" name="bigthetao" operation="average" unit="degC">    @toce_e3t / @e3t                                                    </field>
+     <field enabled="False" field_ref="CFC11_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_cfc11" name="cfc11" operation="average" unit="mol m-3">    @CFC11_E3T / @e3t                                                   </field>
+     <field enabled="False" field_ref="CFC12_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_cfc12" name="cfc12" operation="average" unit="mol m-3">    @CFC12_E3T / @e3t                                                   </field>
+     <field enabled="False" field_ref="masscello" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_masscello" name="masscello" operation="average" unit="kg m-2">                                                                        </field>
+     <field enabled="False" field_ref="bn2_e3t" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_obvfsq" name="obvfsq" operation="average" unit="s-2">    @bn2_e3t / @e3t                                                     </field>
+     <field enabled="False" field_ref="qsr3d_e3t_SBC" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_rsdo" name="rsdo" operation="average" unit="W m-2">    @qsr3d_e3t_SBC / @e3t_SBC                                           </field>
+     <field enabled="False" field_ref="SF6_E3T" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_sf6" name="sf6" operation="average" unit="mol m-3">    @SF6_E3T / @e3t                                                     </field>
+     <field enabled="True" field_ref="soce_e3t" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_so" name="so" operation="average" unit="0.001">    @soce_e3t / @e3t * $convSpsu                                        </field>
+     <field enabled="True" field_ref="toce_pot" freq_op="1mo" grid_ref="grid_T_3D" id="id_1m_thetao" name="thetao" operation="average" unit="degC">    @toce_pot_e3t / @e3t                                                </field>
+     <field enabled="False" field_ref="e3t" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_thkcello" name="thkcello" operation="average" unit="m">                                                                        </field>
+     <field enabled="False" field_ref="tpt_dep" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_zhalfo" name="zhalfo" operation="average" unit="m">                                                                        </field>
+     <field enabled="False" field_ref="ttrd_zdfp_e3t" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_ocontempdiff" name="ocontempdiff" operation="average" unit="W m-2">     this * $cpocean * $rau0                                            </field>
+     <field enabled="False" field_ref="ttrd_eivad_e3t" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_ocontemppadvect" name="ocontemppadvect" operation="average" unit="W m-2">     this * $cpocean * $rau0                                            </field>
+     <field enabled="False" field_ref="ttrd_iso_e3t" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_ocontemppmdiff" name="ocontemppmdiff" operation="average" unit="W m-2">     this * $cpocean * $rau0                                            </field>
+     <field enabled="False" field_ref="ttrd_totad_e3t" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_ocontemprmadvect" name="ocontemprmadvect" operation="average" unit="W m-2">     this * $cpocean * $rau0                                            </field>
+     <field enabled="False" field_ref="ttrd_tot_e3t" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_ocontemptend" name="ocontemptend" operation="average" unit="W m-2">     this * $cpocean * $rau0                                            </field>
+     <field enabled="False" field_ref="strd_zdfp_e3t" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_osaltdiff" name="osaltdiff" operation="average" unit="kg m-2 s-1">     this * $rau0                                                       </field>
+     <field enabled="False" field_ref="strd_eivad_e3t" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_osaltpadvect" name="osaltpadvect" operation="average" unit="kg m-2 s-1">     this * $rau0                                                       </field>
+     <field enabled="False" field_ref="strd_iso_e3t" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_osaltpmdiff" name="osaltpmdiff" operation="average" unit="kg m-2 s-1">     this * $rau0                                                       </field>
+     <field enabled="False" field_ref="strd_totad_e3t" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_osaltrmadvect" name="osaltrmadvect" operation="average" unit="kg m-2 s-1">     this * $rau0                                                       </field>
+     <field enabled="False" field_ref="strd_tot_e3t" freq_op="1ts" grid_ref="grid_T_3D" id="id_1m_osalttend" name="osalttend" operation="average" unit="kg m-2 s-1">     this * $rau0                                                       </field>
+
+    </file>
+
+
+    <file id="file16" name_suffix="_opa_zoom_700_sum" output_freq="1mo">
+
+     <field enabled="False" field_ref="toce_pot_vmean700" freq_op="1ts" grid_ref="zoom_700_sum" id="id_1m_thetaot700" name="thetaot700" operation="average" unit="degC">                                                                        </field>
+
+    </file>
+
+
+    <file id="file17" name_suffix="_opa_grid_V_2D" output_freq="1mo">
+
+     <field enabled="False" field_ref="vadv_heattr" freq_op="1ts" grid_ref="grid_V_2D" id="id_1m_hfy" name="hfy" operation="average" unit="W">     this + vdiff_heattr                                                </field>
+     <field enabled="False" field_ref="vtau" freq_op="1ts" grid_ref="grid_V_2D" id="id_1m_tauvo" name="tauvo" operation="average" unit="N m-2">                                                                        </field>
+
+    </file>
+
+
+    <file id="file18" name_suffix="_opa_grid_V_3D" output_freq="1mo">
+
+     <field enabled="False" field_ref="vocetr_eff" freq_op="1ts" grid_ref="grid_V_3D" id="id_1m_vmo" name="vmo" operation="average" unit="kg s-1">     this * $rau0                                                       </field>
+     <field enabled="True" field_ref="voce_e3v" freq_op="1mo" grid_ref="grid_V_3D" id="id_1m_vo" name="vo" operation="average" unit="m s-1">    @voce_e3v / @e3v                                                    </field>
+
+    </file>
+
+
+    <file id="file19" name_suffix="_opa_grid_T_2D" output_freq="1mo">
+
+     <field enabled="False" field_ref="evap_ao_cea" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_evs" name="evs" operation="average" unit="kg m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="qtr_CFC11" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_fgcfc11" name="fgcfc11" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="qtr_CFC12" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_fgcfc12" name="fgcfc12" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="qtr_SF6" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_fgsf6" name="fgsf6" operation="average" unit="mol m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="iceberg_cea" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_ficeberg2d" name="ficeberg2d" operation="average" unit="kg m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="runoffs" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_friver" name="friver" operation="average" unit="kg m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="fmmflx" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_fsitherm" name="fsitherm" operation="average" unit="kg m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="qrp" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_hfcorr" name="hfcorr" operation="average" unit="W m-2">                                                                        </field>
+     <field enabled="True" field_ref="qt" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_hfds" name="hfds" operation="average" unit="W m-2">     qt - qrp                                                           </field>
+     <field enabled="False" field_ref="hflx_evap_cea" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_hfevapds" name="hfevapds" operation="average" unit="W m-2">                                                                        </field>
+     <field enabled="False" field_ref="hfgeou" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_hfgeou" name="hfgeou" operation="average" unit="W m-2">                                                                        </field>
+     <field enabled="False" field_ref="hflx_icb_cea" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_hfibthermds2d" name="hfibthermds2d" operation="average" unit="W m-2">                                                                        </field>
+     <field enabled="False" field_ref="qla_oce" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_hflso" name="hflso" operation="average" unit="W m-2">                                                                        </field>
+     <field enabled="False" field_ref="hflx_rain_cea" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_hfrainds" name="hfrainds" operation="average" unit="W m-2">                                                                        </field>
+     <field enabled="False" field_ref="hflx_rnf_cea" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_hfrunoffds2d" name="hfrunoffds2d" operation="average" unit="W m-2">                                                                        </field>
+     <field enabled="False" field_ref="hflx_snow_ao_cea" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_hfsnthermds2d" name="hfsnthermds2d" operation="average" unit="W m-2">                                                                        </field>
+     <field enabled="False" field_ref="qsb_oce" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_hfsso" name="hfsso" operation="average" unit="W m-2">                                                                        </field>
+     <field enabled="True" field_ref="mldr10_3" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_mlotst" name="mlotst" operation="average" unit="m">                                                                        </field>
+     <field enabled="False" field_ref="mldr10_3max" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_mlotstmax" name="mlotstmax" operation="maximum" unit="m">                                                                        </field>
+     <field enabled="False" field_ref="mldr10_3min" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_mlotstmin" name="mlotstmin" operation="minimum" unit="m">                                                                        </field>
+     <field enabled="False" field_ref="mldr10_3" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_mlotstsq" name="mlotstsq" operation="average" unit="m2">     this * this                                                        </field>
+     <field enabled="False" field_ref="botpres" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_pbo" name="pbo" operation="average" unit="Pa">     this * 1e4                                                         </field>
+     <field enabled="False" field_ref="botpres" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_pso" name="pso" operation="average" unit="Pa">                                                                        </field>
+     <field enabled="False" field_ref="qlw_oce" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_rlntds" name="rlntds" operation="average" unit="W m-2">                                                                        </field>
+     <field enabled="False" field_ref="qsr" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_rsntds" name="rsntds" operation="average" unit="W m-2">                                                                        </field>
+     <field enabled="False" field_ref="saltflx" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sfdsi_2" name="sfdsi" operation="average" unit="kg m-2 s-1">     this * $convSpsu                                                   </field>
+     <field enabled="False" field_ref="sbs_e3tb" freq_op="1mo" grid_ref="grid_T_2D" id="id_1m_sob" name="sob" operation="average" unit="0.001">    @sbs_e3tb / @e3tb * $convSpsu                                       </field>
+     <field enabled="True" field_ref="sss" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sos" name="sos" operation="average" unit="0.001">     this * $convSpsu                                                   </field>
+     <field enabled="False" field_ref="sss2" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sossq" name="sossq" operation="average" unit="1e-06">     this * $convSpsu * $convSpsu                                       </field>
+     <field enabled="False" field_ref="toce_potb_e3tb" freq_op="1mo" grid_ref="grid_T_2D" id="id_1m_tob" name="tob" operation="average" unit="degC">    @toce_potb_e3tb / @e3tb                                             </field>
+     <field enabled="True" field_ref="sst_pot" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_tos" name="tos" operation="average" unit="degC">                                                                        </field>
+     <field enabled="False" field_ref="sst_pot2" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_tossq" name="tossq" operation="average" unit="degC2">                                                                        </field>
+     <field enabled="False" field_ref="erp" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_wfcorr" name="wfcorr" operation="average" unit="kg m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="empmr" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_wfo" name="wfo" operation="average" unit="kg m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="empmr" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_wfonocorr" name="wfonocorr" operation="average" unit="kg m-2 s-1">     empmr - erp                                                        </field>
+     <field enabled="True" field_ref="sshdyn" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_zos" name="zos" operation="average" unit="m">                                                                        </field>
+     <field enabled="False" field_ref="sshdyn2" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_zossq" name="zossq" operation="average" unit="m2">                                                                        </field>
+     <field enabled="False" field_ref="iceshelf_cea" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_flandice" name="flandice" operation="average" unit="kg m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="somint" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_somint" name="somint" operation="average" unit="g m-2">     this * $convSpsu                                                   </field>
+     <field enabled="False" field_ref="20d" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_t20d" name="t20d" operation="average" unit="m">                                                                        </field>
+     <field enabled="False" field_ref="dispkevfo" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_dispkevfo" name="dispkevfo" operation="average" unit="W m-2">                                                                        </field>
+     <field enabled="False" field_ref="dispkexyfo" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_dispkexyfo2d" name="dispkexyfo2d" operation="average" unit="W m-2">                                                                        </field>
+     <field enabled="False" field_ref="eketrd_eiv" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_tnkebto2d" name="tnkebto2d" operation="average" unit="W m-2">                                                                        </field>
+     <field enabled="False" field_ref="tnpeo" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_tnpeo" name="tnpeo" operation="average" unit="W m-2">                                                                        </field>
+
+    </file>
+
+
+    <file id="file20" name_suffix="_opa_grid_U_2D" output_freq="1mo">
+
+     <field enabled="False" field_ref="uadv_heattr" freq_op="1ts" grid_ref="grid_U_2D" id="id_1m_hfx" name="hfx" operation="average" unit="W">     this + udiff_heattr                                                </field>
+     <field enabled="False" field_ref="uoce_e3u_vsum_e2u_cumul" grid_ref="grid_U_2D" id="id_1m_msftbarot" name="msftbarot" operation="average" unit="kg s-1">     this * $rau0                                                       </field>
+     <field enabled="False" field_ref="utau" freq_op="1ts" grid_ref="grid_U_2D" id="id_1m_tauuo" name="tauuo" operation="average" unit="N m-2">                                                                        </field>
+
+    </file>
+
+
+    <file id="file21" name_suffix="_opa_zoom_300_sum" output_freq="1mo">
+
+     <field enabled="False" field_ref="toce_pot_vmean300" freq_op="1ts" grid_ref="zoom_300_sum" id="id_1m_thetaot300" name="thetaot300" operation="average" unit="degC">                                                                        </field>
+
+    </file>
+
+
+    <file id="file22" name_suffix="_opa_grid_transect" output_freq="1mo">
+
+     <field enabled="False" field_ref="transport_masse_transect" freq_op="1ts" grid_ref="grid_transect" id="id_1m_mfo" name="mfo" operation="average" unit="kg s-1">                                                                        </field>
+
+    </file>
+
+
+    <file id="file23" name_suffix="_opa_grid_W_3D" output_freq="1mo">
+
+     <field enabled="False" field_ref="wocetr_eff" freq_op="1ts" grid_ref="grid_W_3D" id="id_1m_wmo" name="wmo" operation="average" unit="kg s-1">     this * $rau0                                                       </field>
+     <field enabled="False" field_ref="woce" freq_op="1mo" grid_ref="grid_W_3D" id="id_1m_wo" name="wo" operation="average" unit="m s-1">    @woce_e3w / @e3w                                                    </field>
+     <field enabled="False" field_ref="avt_e3w" freq_op="1mo" grid_ref="grid_W_3D" id="id_1m_difvho" name="difvho" operation="average" unit="m2 s-1">    @avt_e3w / @e3w                                                     </field>
+     <field enabled="False" field_ref="avm_e3w" freq_op="1mo" grid_ref="grid_W_3D" id="id_1m_difvmo" name="difvmo" operation="average" unit="m2 s-1">    @avm_e3w / @e3w                                                     </field>
+     <field enabled="False" field_ref="av_wave_e3w" freq_op="1mo" grid_ref="grid_W_3D" id="id_1m_difvmto" name="difvmto" operation="average" unit="m2 s-1">    @av_wave_e3w / @e3w                                                 </field>
+     <field enabled="False" field_ref="avs_e3w" freq_op="1mo" grid_ref="grid_W_3D" id="id_1m_difvso" name="difvso" operation="average" unit="m2 s-1">    @avs_e3w / @e3w                                                     </field>
+     <field enabled="False" field_ref="av_wave_e3w" freq_op="1mo" grid_ref="grid_W_3D" id="id_1m_difvtrto" name="difvtrto" operation="average" unit="m2 s-1">    @av_wave_e3w / @e3w                                                 </field>
+
+    </file>
+
+
+    <file id="file24" name_suffix="_opa_grid_W_2D" output_freq="1mo">
+
+     <field enabled="False" field_ref="aht2d_eiv" freq_op="1ts" grid_ref="grid_W_2D" id="id_1m_diftrblo2d" name="diftrblo2d" operation="average" unit="m2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="aht2d_eiv" freq_op="1ts" grid_ref="grid_W_2D" id="id_1m_diftrelo2d" name="diftrelo2d" operation="average" unit="m2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="aht2d" freq_op="1ts" grid_ref="grid_W_2D" id="id_1m_diftrxylo2d" name="diftrxylo2d" operation="average" unit="m2 s-1">                                                                        </field>
+
+    </file>
+
+
+    <file id="file25" name_suffix="_opa_grid_U_3D" output_freq="1mo">
+
+     <field enabled="False" field_ref="uocetr_eff" freq_op="1ts" grid_ref="grid_U_3D" id="id_1m_umo" name="umo" operation="average" unit="kg s-1">     this * $rau0                                                       </field>
+     <field enabled="True" field_ref="uoce_e3u" freq_op="1mo" grid_ref="grid_U_3D" id="id_1m_uo" name="uo" operation="average" unit="m s-1">    @uoce_e3u / @e3u                                                    </field>
+
+    </file>
+
+
+    <file id="file26" name_suffix="_opa_vert_sum" output_freq="1mo">
+
+     <field enabled="False" field_ref="toce_pot_vmean" freq_op="1ts" grid_ref="vert_sum" id="id_1m_thetaot" name="thetaot" operation="average" unit="degC">                                                                        </field>
+
+    </file>
+
+
+    <file id="file27" name_suffix="_opa_grid_1point" output_freq="1mo">
+
+     <field enabled="False" field_ref="sctemtot" freq_op="1ts" grid_ref="grid_1point" id="id_1m_bigthetaoga" name="bigthetaoga" operation="average" unit="degC">                                                                        </field>
+     <field enabled="False" field_ref="scmastot" freq_op="1ts" grid_ref="grid_1point" id="id_1m_masso" name="masso" operation="average" unit="kg">                                                                        </field>
+     <field enabled="False" field_ref="scsaltot" freq_op="1ts" grid_ref="grid_1point" id="id_1m_soga" name="soga" operation="average" unit="0.001">     this * $convSpsu                                                   </field>
+     <field enabled="False" field_ref="scssstot" freq_op="1ts" grid_ref="grid_1point" id="id_1m_sosga" name="sosga" operation="average" unit="0.001">     this * $convSpsu                                                   </field>
+     <field enabled="False" field_ref="sctemtotpot" freq_op="1ts" grid_ref="grid_1point" id="id_1m_thetaoga" name="thetaoga" operation="average" unit="degC">                                                                        </field>
+     <field enabled="False" field_ref="scssttot" freq_op="1ts" grid_ref="grid_1point" id="id_1m_tosga" name="tosga" operation="average" unit="degC">                                                                        </field>
+     <field enabled="False" field_ref="scvoltot" freq_op="1ts" grid_ref="grid_1point" id="id_1m_volo" name="volo" operation="average" unit="m3">                                                                        </field>
+     <field enabled="False" field_ref="scsshtst" freq_op="1ts" grid_ref="grid_1point" id="id_1m_zostoga" name="zostoga" operation="average" unit="m">                                                                        </field>
+
+    </file>
+
+
+    <file id="file28" name_suffix="_opa_grid_ptr_T_3basin_2D" output_freq="1mo">
+
+     <field enabled="False" field_ref="sopst_vs_3bsn" freq_op="1ts" grid_ref="grid_ptr_T_3basin_2D" id="id_1m_sltbasin" name="sltbasin" operation="average" unit="kg s-1">     this * 1e6 * $convSpsu                                             </field>
+     <field enabled="False" field_ref="sopht_vt_3bsn" freq_op="1ts" grid_ref="grid_ptr_T_3basin_2D" id="id_1m_hfbasin" name="hfbasin" operation="average" unit="W">     this * 1e15                                                        </field>
+     <field enabled="False" field_ref="sophteiv_3bsn" freq_op="1ts" grid_ref="grid_ptr_T_3basin_2D" id="id_1m_hfbasinpmadv" name="hfbasinpmadv" operation="average" unit="W">     this * 1e15                                                        </field>
+     <field enabled="False" field_ref="sophtove_3bsn" freq_op="1ts" grid_ref="grid_ptr_T_3basin_2D" id="id_1m_htovgyre" name="htovgyre" operation="average" unit="W">     sopht_vt_3bsn * 1e15 - this * 1e15                                 </field>
+     <field enabled="False" field_ref="sophtove_3bsn" freq_op="1ts" grid_ref="grid_ptr_T_3basin_2D" id="id_1m_htovovrt" name="htovovrt" operation="average" unit="W">     this * 1e15                                                        </field>
+     <field enabled="False" field_ref="sopstove_3bsn" freq_op="1ts" grid_ref="grid_ptr_T_3basin_2D" id="id_1m_sltovgyre" name="sltovgyre" operation="average" unit="kg s-1">     sopst_vs_3bsn*1e6*$convSpsu   - this*1e6*$convSpsu                 </field>
+     <field enabled="False" field_ref="sopstove_3bsn" freq_op="1ts" grid_ref="grid_ptr_T_3basin_2D" id="id_1m_sltovovrt" name="sltovovrt" operation="average" unit="kg s-1">     this * 1e6 * $convSpsu                                             </field>
+
+    </file>
+
+
+    <file id="file29" name_suffix="_opa_zoom_2000_sum" output_freq="1mo">
+
+     <field enabled="False" field_ref="toce_pot_vmean2000" freq_op="1ts" grid_ref="zoom_2000_sum" id="id_1m_thetaot2000" name="thetaot2000" operation="average" unit="degC">                                                                        </field>
+
+    </file>
+
+
+    <file id="file30" name_suffix="_opa_grid_ptr_W_3basin_3D" output_freq="1mo">
+
+     <field enabled="False" field_ref="zomsf_3bsn" freq_op="1ts" grid_ref="grid_ptr_W_3basin_3D" id="id_1m_msftyz" name="msftyz" operation="average" unit="kg s-1">     this * 1e6 * $rau0                                                 </field>
+
+    </file>
+
+
+    </file_group>
+
+
+  </file_definition>

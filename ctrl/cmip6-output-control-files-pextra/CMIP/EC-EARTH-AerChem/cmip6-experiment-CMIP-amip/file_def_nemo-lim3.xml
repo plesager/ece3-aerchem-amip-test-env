@@ -1,0 +1,142 @@
+<file_definition min_digits="4" name="@expname@_@freq@_@startdate@_@enddate@" sync_freq="1d" type="one_file">
+
+
+   <file_group id="id_file_group_lim">
+
+
+    <file id="file1" name_suffix="_lim_grid_V_2D" output_freq="1d">
+
+     <field enabled="True" field_ref="vice_mv" freq_op="1ts" grid_ref="grid_V_2D" id="id_1d_siv" name="siv" operation="average" unit="m s-1">                                                                        </field>
+
+    </file>
+
+
+    <file id="file2" name_suffix="_lim_grid_T_2D" output_freq="1d">
+
+     <field enabled="True" field_ref="iceconc_pct" freq_op="1ts" grid_ref="grid_T_2D" id="id_1d_siconc" name="siconc" operation="average" unit="%">                                                                        </field>
+     <field enabled="False" field_ref="snothic" freq_op="1ts" grid_ref="grid_T_2D" id="id_1d_sisnthick" name="sisnthick" operation="average" unit="m">                                                                        </field>
+     <field enabled="False" field_ref="icevel_mv" freq_op="1ts" grid_ref="grid_T_2D" id="id_1d_sispeed" name="sispeed" operation="average" unit="m s-1">                                                                        </field>
+     <field enabled="False" field_ref="icestK" freq_op="1ts" grid_ref="grid_T_2D" id="id_1d_sitemptop" name="sitemptop" operation="average" unit="K">                                                                        </field>
+     <field enabled="True" field_ref="icethic" freq_op="1ts" grid_ref="grid_T_2D" id="id_1d_sithick" name="sithick" operation="average" unit="m">                                                                        </field>
+     <field enabled="False" field_ref="icepres" freq_op="1ts" grid_ref="grid_T_2D" id="id_1d_sitimefrac" name="sitimefrac" operation="average" unit="1">                                                                        </field>
+
+    </file>
+
+
+    <file id="file3" name_suffix="_lim_grid_U_2D" output_freq="1d">
+
+     <field enabled="True" field_ref="uice_mv" freq_op="1ts" grid_ref="grid_U_2D" id="id_1d_siu" name="siu" operation="average" unit="m s-1">                                                                        </field>
+
+    </file>
+
+
+    <file id="file4" name_suffix="_lim_grid_V_2D" output_freq="1mo">
+
+     <field enabled="False" field_ref="vice_mv" freq_op="1ts" grid_ref="grid_V_2D" id="id_1m_siv" name="siv" operation="average" unit="m s-1">                                                                        </field>
+
+    </file>
+
+
+    <file id="file5" name_suffix="_lim_grid_T_2D" output_freq="1mo">
+
+     <field enabled="False" field_ref="saltflx" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sfdsi" name="sfdsi" operation="average" unit="kg m-2 s-1">     this * $convSpsu                                                   </field>
+     <field enabled="False" field_ref="iceage" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_siage" name="siage" operation="average" unit="s">                                                                        </field>
+     <field enabled="False" field_ref="icestr" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sicompstren" name="sicompstren" operation="average" unit="N m-1">                                                                        </field>
+     <field enabled="True" field_ref="iceconc_pct" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_siconc" name="siconc" operation="average" unit="%">                                                                        </field>
+     <field enabled="False" field_ref="afxdyn" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sidconcdyn" name="sidconcdyn" operation="average" unit="s-1">                                                                        </field>
+     <field enabled="False" field_ref="afxthd" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sidconcth" name="sidconcth" operation="average" unit="s-1">                                                                        </field>
+     <field enabled="False" field_ref="idive" freq_op="1mo" grid_ref="grid_T_2D" id="id_1m_sidivvel" name="sidivvel" operation="instant" unit="s-1">                                                                        </field>
+     <field enabled="False" field_ref="dmidyn" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sidmassdyn" name="sidmassdyn" operation="average" unit="kg m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="dmisub" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sidmassevapsubl" name="sidmassevapsubl" operation="average" unit="kg m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="dmibog" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sidmassgrowthbot" name="sidmassgrowthbot" operation="average" unit="kg m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="dmiopw" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sidmassgrowthwat" name="sidmassgrowthwat" operation="average" unit="kg m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="dmibom" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sidmassmeltbot" name="sidmassmeltbot" operation="average" unit="kg m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="dmisum" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sidmassmelttop" name="sidmassmelttop" operation="average" unit="kg m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="dmisni" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sidmasssi" name="sidmasssi" operation="average" unit="kg m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="dmithd" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sidmassth" name="sidmassth" operation="average" unit="kg m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="xmtrptot" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sidmasstranx" name="sidmasstranx" operation="average" unit="kg s-1">                                                                        </field>
+     <field enabled="False" field_ref="ymtrptot" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sidmasstrany" name="sidmasstrany" operation="average" unit="kg s-1">                                                                        </field>
+     <field enabled="False" field_ref="icefb" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sifb" name="sifb" operation="average" unit="m">                                                                        </field>
+     <field enabled="False" field_ref="hfxconbo" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_siflcondbot" name="siflcondbot" operation="average" unit="W m-2">                                                                        </field>
+     <field enabled="False" field_ref="hfxconsu" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_siflcondtop" name="siflcondtop" operation="average" unit="W m-2">                                                                        </field>
+     <field enabled="False" field_ref="wfxtot" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_siflfwbot" name="siflfwbot" operation="average" unit="kg m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="wfxsum" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_siflfwdrain" name="siflfwdrain" operation="average" unit="kg m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="hfxsenso" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_siflsensupbot" name="siflsensupbot" operation="average" unit="W m-2">                                                                        </field>
+     <field enabled="False" field_ref="qsr_ice" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_siflswdtop" name="siflswdtop" operation="average" unit="W m-2">                                                                        </field>
+     <field enabled="False" field_ref="corstrx" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_siforcecoriolx" name="siforcecoriolx" operation="average" unit="N m-2">                                                                        </field>
+     <field enabled="False" field_ref="corstry" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_siforcecorioly" name="siforcecorioly" operation="average" unit="N m-2">                                                                        </field>
+     <field enabled="False" field_ref="intstrx" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_siforceintstrx" name="siforceintstrx" operation="average" unit="N m-2">                                                                        </field>
+     <field enabled="False" field_ref="intstry" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_siforceintstry" name="siforceintstry" operation="average" unit="N m-2">                                                                        </field>
+     <field enabled="False" field_ref="dssh_dx" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_siforcetiltx" name="siforcetiltx" operation="average" unit="N m-2">                                                                        </field>
+     <field enabled="False" field_ref="dssh_dy" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_siforcetilty" name="siforcetilty" operation="average" unit="N m-2">                                                                        </field>
+     <field enabled="False" field_ref="icehcneg" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sihc" name="sihc" operation="average" unit="J m-2">                                                                        </field>
+     <field enabled="True" field_ref="icemass" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_simass" name="simass" operation="average" unit="kg m-2">                                                                        </field>
+     <field enabled="False" field_ref="icesal" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sisali" name="sisali" operation="average" unit="0.001">                                                                        </field>
+     <field enabled="False" field_ref="icesmass" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sisaltmass" name="sisaltmass" operation="average" unit="kg m-2">                                                                        </field>
+     <field enabled="False" field_ref="ishear" freq_op="1mo" grid_ref="grid_T_2D" id="id_1m_sishevel" name="sishevel" operation="instant" unit="s-1">                                                                        </field>
+     <field enabled="False" field_ref="isnhcneg" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sisnhc" name="sisnhc" operation="average" unit="J m-2">                                                                        </field>
+     <field enabled="True" field_ref="snomass" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sisnmass" name="sisnmass" operation="average" unit="kg m-2">                                                                        </field>
+     <field enabled="False" field_ref="snothic" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sisnthick" name="sisnthick" operation="average" unit="m">                                                                        </field>
+     <field enabled="False" field_ref="icevel_mv" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sispeed" name="sispeed" operation="average" unit="m s-1">                                                                        </field>
+     <field enabled="False" field_ref="sheastr" freq_op="1mo" grid_ref="grid_T_2D" id="id_1m_sistremax" name="sistremax" operation="instant" unit="N m-1">                                                                        </field>
+     <field enabled="False" field_ref="normstr" freq_op="1mo" grid_ref="grid_T_2D" id="id_1m_sistresave" name="sistresave" operation="instant" unit="N m-1">                                                                        </field>
+     <field enabled="False" field_ref="utau_ice" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sistrxdtop" name="sistrxdtop" operation="average" unit="N m-2">                                                                        </field>
+     <field enabled="False" field_ref="utau_oi" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sistrxubot" name="sistrxubot" operation="average" unit="N m-2">                                                                        </field>
+     <field enabled="False" field_ref="vtau_ice" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sistrydtop" name="sistrydtop" operation="average" unit="N m-2">                                                                        </field>
+     <field enabled="False" field_ref="vtau_oi" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sistryubot" name="sistryubot" operation="average" unit="N m-2">                                                                        </field>
+     <field enabled="False" field_ref="icebotK" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sitempbot" name="sitempbot" operation="average" unit="K">                                                                        </field>
+     <field enabled="False" field_ref="icesntK" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sitempsnic" name="sitempsnic" operation="average" unit="K">                                                                        </field>
+     <field enabled="False" field_ref="icestK" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sitemptop" name="sitemptop" operation="average" unit="K">                                                                        </field>
+     <field enabled="False" field_ref="icethic" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sithick" name="sithick" operation="average" unit="m">                                                                        </field>
+     <field enabled="False" field_ref="icepres" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sitimefrac" name="sitimefrac" operation="average" unit="1">                                                                        </field>
+     <field enabled="False" field_ref="icevolu" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sivol" name="sivol" operation="average" unit="m">                                                                        </field>
+     <field enabled="False" field_ref="dmsdyn" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sndmassdyn" name="sndmassdyn" operation="average" unit="kg m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="dmsmel" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sndmassmelt" name="sndmassmelt" operation="average" unit="kg m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="dmsssi" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sndmasssi" name="sndmasssi" operation="average" unit="kg m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="dmsspr" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sndmasssnf" name="sndmasssnf" operation="average" unit="kg m-2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="dmssub" freq_op="1ts" grid_ref="grid_T_2D" id="id_1m_sndmasssubl" name="sndmasssubl" operation="average" unit="kg m-2 s-1">                                                                        </field>
+
+    </file>
+
+
+    <file id="file6" name_suffix="_lim_grid_U_2D" output_freq="1mo">
+
+     <field enabled="False" field_ref="uice_mv" freq_op="1ts" grid_ref="grid_U_2D" id="id_1m_siu" name="siu" operation="average" unit="m s-1">                                                                        </field>
+
+    </file>
+
+
+    <file id="file7" name_suffix="_lim_grid_1point" output_freq="1mo">
+
+     <field enabled="False" field_ref="NH_sc_icearea" freq_op="1ts" grid_ref="grid_1point" id="id_1m_siarean" name="siarean" operation="average" unit="1e6 km2">                                                                        </field>
+     <field enabled="False" field_ref="SH_sc_icearea" freq_op="1ts" grid_ref="grid_1point" id="id_1m_siareas" name="siareas" operation="average" unit="1e6 km2">                                                                        </field>
+     <field enabled="False" field_ref="NH_sc_iceextt" freq_op="1ts" grid_ref="grid_1point" id="id_1m_siextentn" name="siextentn" operation="average" unit="1e6 km2">                                                                        </field>
+     <field enabled="False" field_ref="SH_sc_iceextt" freq_op="1ts" grid_ref="grid_1point" id="id_1m_siextents" name="siextents" operation="average" unit="1e6 km2">                                                                        </field>
+     <field enabled="False" field_ref="NH_sc_icevolu" freq_op="1ts" grid_ref="grid_1point" id="id_1m_sivoln" name="sivoln" operation="average" unit="1e3 km3">                                                                        </field>
+     <field enabled="False" field_ref="SH_sc_icevolu" freq_op="1ts" grid_ref="grid_1point" id="id_1m_sivols" name="sivols" operation="average" unit="1e3 km3">                                                                        </field>
+
+    </file>
+
+
+    <file id="file8" name_suffix="_lim_grid_T_3D_ncatice" output_freq="1mo">
+
+     <field enabled="False" field_ref="iceconc_cat_pct_mv" freq_op="1ts" grid_ref="grid_T_3D_ncatice" id="id_1m_siitdconc" name="siitdconc" operation="average" unit="%">                                                                        </field>
+     <field enabled="False" field_ref="snowthic_cat_mv" freq_op="1ts" grid_ref="grid_T_3D_ncatice" id="id_1m_siitdsnthick" name="siitdsnthick" operation="average" unit="m">                                                                        </field>
+     <field enabled="False" field_ref="icethic_cat_mv" freq_op="1ts" grid_ref="grid_T_3D_ncatice" id="id_1m_siitdthick" name="siitdthick" operation="average" unit="m">                                                                        </field>
+
+    </file>
+
+
+    <file id="file9" name_suffix="_lim_grid_transect_lim" output_freq="1mo">
+
+     <field enabled="False" field_ref="transport_siarea_transect" freq_op="1ts" grid_ref="grid_transect_lim" id="id_1m_siareaacrossline" name="siareaacrossline" operation="average" unit="m2 s-1">                                                                        </field>
+     <field enabled="False" field_ref="transport_simasse_transect" freq_op="1ts" grid_ref="grid_transect_lim" id="id_1m_simassacrossline" name="simassacrossline" operation="average" unit="kg s-1">                                                                        </field>
+     <field enabled="False" field_ref="transport_snmasse_transect" freq_op="1ts" grid_ref="grid_transect_lim" id="id_1m_snmassacrossline" name="snmassacrossline" operation="average" unit="kg s-1">                                                                        </field>
+
+    </file>
+
+
+    </file_group>
+
+
+  </file_definition>

@@ -1,0 +1,578 @@
+!
+! RCFILE template to set up TM5-MP for an ECEARTH 3 run.
+!
+! The following env variables should be exported by the run script :
+!
+! ${cpl_tm_guess}, ${tm5_co2}, ${ifs_res_hor}, ${exp_name} (because used in run_dir!!) 
+!
+! WARNING: any dependency of one of these keys should also be exported by the run script.
+! 
+
+!=====================================================================!
+! Run main specifications
+!=====================================================================!
+! [id]  basename for executable & runtime rcfile
+my.basename     : tm5v4
+! timing
+timerange.start : 9999-99-99 99:99:99
+timerange.end   : 9999-99-99 99:99:99
+jobstep.length  : inf
+! autorun
+submit.auto     : False
+! main directories
+my.project.dir  : /hpcperm/nm6/ecearth3/experiments/aerchemmip/sources/tm5mp
+my.run.dir      : ${SCRATCH}/ecearth3/${exp_name}
+my.data.dir     : /hpcperm/nm6/ece3data/tm5
+ifs.data.dir    : /hpcperm/nm6/ece3data/ifs
+
+! dir of standard input files (read in model init)
+inputdir        : ${my.data.dir}/TM5_INPUT
+
+co2only : ${tm5_co2}
+
+!=====================================================================!
+! Environment (compiler, libraries, job manager, //, ...)
+!=====================================================================!
+par.mpi       : T
+par.ntask     : 1
+par.nx        : ${tm5_numproc_x}
+par.ny        : ${tm5_numproc_y}
+
+!=====================================================================!
+! Grids & Levels
+!=====================================================================!
+#if "${tm5_exch_nlevs}" == '91'
+my.levs       : tropo34
+#elif "${tm5_exch_nlevs}" == '62'
+my.levs       : tropo31
+#else
+my.levs       : all 
+#endif
+! regions name
+my.region1    :  glb300x200
+! grid names for meteo input (allows on the flight regridding):
+my.region1m   :  glb100x100
+!=====================================================================!
+! Model tuning
+!=====================================================================!
+! model timestep
+time.ntimestep              : 3600
+time.ndyn_max               : 3600
+! processes
+proces.advection.reduced    : T
+proces.wet_removal.cp_scale : 0.5
+! read diffusion coefficients (instead of calculate) (also: write if doesnot exist)
+diffusion.write             : F
+diffusion.dir               : ${my.run.dir}/output
+!=====================================================================!
+! Restart files
+!=====================================================================!
+! initial fields
+istart : 9999
+! Directory (case of istart=33, 32)
+restart.read.dir    : ${my.run.dir}
+! File (case of istart= 31, 5)
+start.31.glb100x100 :  ${my.run.dir}/tm5_save.hdf
+start.31.glb300x200 :  ${my.run.dir}/tm5_save.hdf
+start.31.glb600x400 :  ${my.run.dir}/tm5_save.hdf
+start.5.glb300x200 :  ${my.run.dir}/tm5_mmix.hdf
+start.5.glb600x400 :  ${my.run.dir}/tm5_mmix.hdf
+!
+restart.write                 :  T
+! extra restart files
+restart.write.extra           :  F
+restart.write.extra.hour      :  00
+restart.write.extra.dhour     :  24
+! where to write restart files:
+restart.write.dir             :  ${restart.read.dir}
+!=====================================================================!
+! METEO SETTINGS
+!=====================================================================!
+my.meteo.class        : ifs${tm5_exch_nlevs}
+my.meteo.resol        : glb100x100
+my.meteo.format       : tm5-hdf
+time.fc               : F
+time.fc.day0          : 
+my.tmm.setup.apply    : T
+#include ${my.project.dir}/rc/meteo-tm5-ecearth3.rc
+!=====================================================================!
+! Coupling to ecearth
+!=====================================================================!
+! list of variables get from ifs (comma seperated):
+#if "${co2only}" == '1' 
+prism.get   :  LNSP,VOR,DIV,OROG,SPRES,TMP,HUM,UMF,UDR,DMF,DDR,LSMSK,SR,WSPD,SLHF,SSHF,EWSS,NSSS
+#else
+prism.get   :  LNSP,VOR,DIV,OROG,SPRES,TMP,HUM,CLW,CIW,CC,CCO,CCU,UMF,UDR,DMF,DDR,LSMSK,ALB,SR,CI,SST,WSPD,SRC,D2M,T2M,SLHF,SSHF,EWSS,NSSS,CP,LSP,SSR,SD,SWVL1,TV01,TV02,TV03,TV04,TV05,TV06,TV07,TV09,TV10,TV11,TV13,TV16,TV17,TV18,TV19,CVL,CVH
+#endif
+
+! * == 3D
+!SPINF,LNSP,VOR*,DIV*,OROG,SPRES,TMP*,HUM*,CLW*,CIW*,CC*,CCO*,CCU*,UMF*,UDR*,DMF*,DDR*,LSMSK,ALB,SR,CI,SST,WSPD,SRC,D2M,T2M,SLHF,SSHF,EWSS,NSSS,CP,LSP,SSR,SD,SWVL1,TV01,TV02,TV03,TV04,TV05,TV06,TV07,TV09,TV10,TV11,TV13,TV16,TV17,TV18,TV19,CVL,CVH
+
+! list of variables put to ifs (comma seperated):
+prism.put   :  ${tm5_to_ifs}
+! number of levels for exchange with IFS:
+ifs.cpl.nlev : ${tm5_exch_nlevs}
+! reduced number of levels for exchange with IFS,
+! applied to aerosol fields
+ifs.cpl.nlev.cutoff : ${tm5_exch_nlevs_cutoff}
+! ifs spectral resolution:
+ifs.shresol  : ${ifs_res_hor}
+
+! frequency of coupling with IFS, LPJG, and PISCES [hrs]:
+cpl.ifs.period : 6
+cpl.lpj.period : 24
+cpl.pis.period : 24
+
+! couple TM5 to LPJ-GUESS
+coupled_to_lpjguess : ${cpl_tm_guess} 
+
+! couple TM5 to PISCES
+coupled_to_pisces : ${cpl_tm_pisces} 
+
+!=====================================================================!
+! Extra resources
+!=====================================================================!
+#if "${my.region1}" == "glb100x100"
+#include ${my.project.dir}/rc/regions-glb100x100-chem.rc
+#else
+#include ${my.project.dir}/rc/regions-${my.region1}.rc
+#endif
+
+#include ${my.project.dir}/rc/expert-ecearth3-run.rc
+
+!=====================================================================!
+! Input for chemistry - see <sources>/tm5mp/rc/chem-input-default.rc.tmpl for details
+!=====================================================================!
+!
+! CMIP6 Scenario for future runs (could be SSP1-1.9, SSP1-2.6,
+! SSP1-2.6-Ext, SSP2-4.5, SSP3-7.0, SSP5-8.5, SSP5-8.5-Ext),
+! but:
+!  Only SSP1-1.9, SSP1-2.6, SSP2-4.5, SSP3-7.0, SSP3-LowNTCF (see below), and SSP5-8.5 are implemented for AerChem.
+!  Only SSP3-7.0 and SSP5-8.5     are implemented for C-cycle.
+! 
+! SSP3-LowNTCF is triggered with the flags below, effective only
+!  when using SSP3-7.0 scenario.
+!
+input.CMIP6.SSP : ${ifs_cmip6_scenario}
+
+! --- Options to use SSP370-lowNTCF for selected species or groups of species
+! "Overall" flag. Default to False
+input.CMIP6.SSP370_LowNTCF.ntcf : F
+
+! -- "Aerosols". Default to Overal
+!input.CMIP6.SSP370_LowNTCF.aer  : F
+! - Species that default to Aerosols
+!input.CMIP6.SSP370_LowNTCF.bc   : F
+!input.CMIP6.SSP370_LowNTCF.oc   : F
+!input.CMIP6.SSP370_LowNTCF.sox   : F
+!input.CMIP6.SSP370_LowNTCF.nh3   : F
+
+! -- "Ozone" precursors flag. Default to Overal
+!input.CMIP6.SSP370_LowNTCF.o3    : F
+! - Species that default to Ozone
+!input.CMIP6.SSP370_LowNTCF.nox   : F
+!input.CMIP6.SSP370_LowNTCF.co    : F
+!input.CMIP6.SSP370_LowNTCF.nmvoc : F
+
+! For CH4, one also needs to set LSSP370_LOWCH4 to True in the IFS namelist.
+! Otherwise H2O production from CH4 oxidation in IFS will be based on SSP370.
+! Default is False.
+input.CMIP6.SSP370_LowNTCF.ch4   : F
+
+!------------------------
+! Photolysis
+!------------------------
+input.photo              : ${inputdir}/photolysis
+optics.lookuptable       : ${inputdir}/photolysis/lookup_table.nc
+optics.refractive_indices: ${inputdir}/photolysis/refractive_indices_hdfstyle.nc
+
+!------------------------
+! STRATOSPHERIC BOUNDARY : O3, O3S and CH4 are relaxed to climatology at those layers
+!------------------------
+! ** Use CMIP6 O3..
+input.conc.o3.cmip6        :  T
+! .. specifically its pre-industrial climatology
+input.conc.o3.cmip6.piclim :  F
+! with data in
+input.conc.o3.cmip6.dir    :  ${ifs.data.dir}/cmip6-data/
+
+! Alternative for O3
+input.climat.MSR         :  F
+input.climat.o3vmr       :  ${inputdir}/boundary/O3_top/MSR_O3_VMR_HDF/
+input.climat.use_o3du    :  F
+input.climat.o3du        :  ${inputdir}/boundary/O3_top/MSR_O3_VMR_HDF/
+
+! Option to fix CMIP6 or MSR O3 mixing ratios to fixed year:
+! Note that, for CMIP6, this option applied to the year 1850, 
+! is not the same as selecting the pre-industrial climatology
+! with input.conc.o3.cmip6.piclim=T, which has precedence.
+#if "${ifs_cmip_fixyear}" != "0"
+input.o3.fixyear  :  T
+input.o3.year     : ${ifs_cmip_fixyear}
+#else
+input.o3.fixyear  :  F
+input.o3.year     : 
+#endif
+
+! ** CH4, use HALOE climatology...
+input.climat.HALOE       :  T
+input.climat.ch4vmr      :  ${inputdir}/boundary/CH4_top/
+! ... scaled based on the CMIP6 time series of the global and annual mean
+
+! Option to fix CMIP6 methane boundary conditions and emissions to fixed year
+#if "${tm5_emiss_fixyear}" != "0"
+input.ch4.fixyear :  T
+input.ch4.year    : ${tm5_emiss_fixyear}
+#else
+input.ch4.fixyear :  F
+input.ch4.year    :
+#endif
+
+! ** For HNO3 and CO scaled from O3 according to ODIN:
+input.climat.ODIN        :  T
+input.climat.covmr       :  ${inputdir}/boundary/ODIN/
+
+!------------------------
+! Set emissions base year (default to simulation year if commented)
+!------------------------
+#if "${tm5_emiss_fixyear}" != "0"
+input.emis.year          : ${tm5_emiss_fixyear}
+#endif
+
+!--------------------------------------------------------------------
+! Additional switches to fix the emissions of anthropogenic and biomass
+! burning emissions to a specific year (as required in AerChemMIP).
+!
+! The year of emissions can be controlled for the whole group of NTCFs, for
+! the sub-groups of aerosol or ozone precursors, and/or for the individual
+! species.
+!
+! Note that settings for individual species or else the subgroup to which they
+! belong take precedence. If these are commented, input.emis.year.ntcf or else
+! input.emis.year is used.  If these are also commented, the actual year of
+! simulation is used.
+!
+
+! --- "All" Near-Term Climate Forcers (NTCFs), excl. CH4.
+! --- Default to "input.emis.year"
+!input.emis.year.ntcf : 
+
+! -- "Aerosols" precursors (BC, OC, NH3, SOx). Default to "All"
+!input.emis.year.aer  : 
+! - Species that default to "Aerosols"
+!input.emis.year.bc   : 
+!input.emis.year.oc   : 
+!input.emis.year.sox   : 
+!input.emis.year.nh3   : 
+
+! -- "Ozone" precursors (NOx, CO, NMVOCs incl. isoprene and mononterpenes). Default to "All"
+!input.emis.year.o3    : 
+! - Species that default to "Ozone". (Note that in AerChemMIP, the year for CO should be that for NMVOCs.)
+!input.emis.year.nox   : 
+!input.emis.year.co    : 
+!input.emis.year.nmvoc : 
+
+! ----------------------------------------
+! ! Anthropogenic emis (choose ONE: CEDS2021 (1850-2019) or CMIP6 (1850-2100) or AR5(1850-2100) or EDGAR4(1970-2005/8) )
+! ----------------------------------------
+#if ( "${co2only}" == '1' ) and ( "${tm5_emiss_fixyear}" == "-1" )
+use_cmip6            : F
+use_ceds2021         : F
+#else
+use_cmip6            : T
+use_ceds2021         : F
+#endif
+input.emis.dir.CEDS2021 : ${my.data.dir}/CEDS_2021
+input.emis.dir.CMIP6 : ${my.data.dir}/CMIP6
+use_ar5              : F
+input.emis.dir.AR5   : ${my.data.dir}/AR5
+! AR5 scenario: choose b/w RCP26 (1), RCP45 (2), RCP60 (3), RCP85 (4) and 'hist' (0) for historical
+input.emis.AR5.RCP   : 0
+use_edgar4           : F
+input.emis.dir.ED41  : ${my.data.dir}/EDGAR4
+
+! ----------------------------------------
+! Biomass burning (choose one: CMIP6BMB (1850-2100), GFED3 (1997-2010), RETRO_FIRES(1960-2000) or AR5_FIRES)
+! ----------------------------------------
+use_cmip6_fires      : T
+use_ar5_fires        : F
+use_retro_fires      : F
+use_gfed3            : F
+input.emis.dir.gfed  : ${my.data.dir}/GFED3
+input.emis.dir.retro : ${my.data.dir}/RETRO
+! apply daily cycle to BMB in the tropics 
+! (based on isoprene and not applied to BC/POM)
+input.emis.bb.dailycycle   :  F
+
+! ----------------------------------------
+! Natural emissions
+! ----------------------------------------
+use_macc               : T
+input.emis.dir.MACC    : ${my.data.dir}/MACC
+use_megan              : T
+input.emis.dir.MEGAN   : ${my.data.dir}/MEGAN
+use_lpj                : T
+use_hymn               : T
+input.emis.dir.natch4  : ${inputdir}/natural_emissions/reactive_gases/CH4/HYMN
+input.emis.dir.rn222   : ${inputdir}/natural_emissions/tracer
+input.emis.dir.dms     : ${inputdir}/natural_emissions/reactive_gases/DMS
+
+! Set base year for natural emissions that don't cover the full period
+! 1850-2100.  Use 2000 in climate integrations (CMIP6).  Used for CH4
+! emissions from LPJ, as well as for MACC & MEGAN.
+input.natemis.year : 2000                        
+
+! ----------------------------------------
+! Aerosols
+! ----------------------------------------
+input.emis.dust          : ONLINE
+input.emis.dir.dust      :  ${inputdir}/aerosols/Dust/${input.emis.dust}
+input.emis.dir.aerocom   :  ${inputdir}/aerosols/SOA
+
+! ** particle formation scheme
+! 1 Vehkamaki et al. 2002 (so4)
+! 2 Kulmala et al. 1996 (so4)
+! 3 Paasonen et al. 2010 (organic+so4) + Vehkamaki et al.
+! 4 Riccobono et al. 2014 + Vehkamaki et al.
+input.nucleation.scheme  : 4
+
+! ** SOA scheme
+!0 POM AeroCom (aitkenmodes)
+!1 POM distribution according to volatility (5 modes) (not implemented) 
+!2 monoterpene+isoprene oxidation + condensation
+input.soa.scheme  : 2
+
+!Use also isoprene yields for ELVOC and SVOC production
+!Default value True
+input.soa.isoprene_on    : T
+!Size of formed particles in KK parameterisation in nm (default: 5.0)
+input.KK.d_form         : 5.0
+
+! ----------------------------------------
+! NOx extra sources
+! ----------------------------------------
+input.onlinenox.dir      :  ${inputdir}/input/glb1x1
+
+! ----------------------------------------
+! Nudging CH4 [see emission_CH4.F90]
+! ----------------------------------------
+! If input.conc.ch4.cmip6 is set to T:
+! - CMIP6 zonal mean surface mixing ratios used to nudge the mixing ratio in
+!    the lower troposphere after the emissions have been added. Both emissions
+!    and zonal means are read for model year or for input.ch4.year if
+!    input.ch4.fixyear==T. Cannot use input.emis.year for CH4 emissions!!
+! - HALOE climatology of stratospheric CH4 mixing ratios scaled
+!   based on CMIP6 time series of global annual mean mixing ratio at surface
+!   (input.climat.HALOE forced to T --see above--)
+input.conc.ch4.cmip6     :  T
+input.conc.ch4.cmip6.dir.year  :  ${ifs.data.dir}/cmip6-data/
+input.conc.ch4.cmip6.dir.month :  ${ifs.data.dir}/cmip6-data/
+
+! alternative
+input.emis.ch4.surf      :  ${inputdir}/boundary/CH4_surf/
+input.emis.ch4.single    :  F
+input.emis.ch4.fixed_ppb :  1760.0
+input.emis.ch4.fix3d     :  T
+
+! ----------------------------------------
+! CO2 mixing ratio used in pH calculation for aqueous chemistry
+! ----------------------------------------
+! If input.conc.co2.cmip6 is set to T (RECOMMENDED),
+! global annual mean mixing ratios from CMIP6 are used;
+! otherwise, it is fixed to a value for the year 2000.
+input.conc.co2.cmip6     :  T
+input.conc.co2.cmip6.dir :  ${ifs.data.dir}/cmip6-data/
+
+
+! Option to fix CMIP6 CO2 mixing ratio to fixed year:
+#if "${ifs_cmip_fixyear}" != "0"
+input.co2.fixyear :  T
+input.co2.year    : ${ifs_cmip_fixyear}
+#else
+input.co2.fixyear :  F
+input.co2.year    :
+#endif
+
+! Option to prescribe CO2 for the 1pctCO2 or abrupt-4xCO2 DECK simulation
+! Only one can be set to True and when this is the case,
+! the values of input.co2.fixyear and input.co2.year
+! as specified above are not used.
+!
+! Option to prescribe CO2 as in 1pctCO2:
+#if "${ifs_1PCTCO2}" == "TRUE"
+input.co2.1pct :  T
+#else
+input.co2.1pct :  F
+#endif
+!
+! Option to prescribe CO2 as in abrupt-4xCO2:
+#if "${ifs_A4xCO2}" == "TRUE"
+input.co2.abrupt-4x :  T
+#else
+input.co2.abrupt-4x :  F
+#endif
+
+!=====================================================================!
+! Log & output dir
+!=====================================================================!
+okdebug               : F
+go.print.all          : F
+go.print.prompt.pe    : F
+go.print.trace        : F
+go.print.file         : T
+go.print.file.base    : ctm.tm5.log
+output.dir            : ${my.run.dir}
+output.overwrite      : T
+! alternative output dir  
+output.dir.base       :  
+output.dir.extensions :  
+
+!=====================================================================!
+! Optional output from 'BASE' code
+!=====================================================================!
+! mean mixing ratio
+output.mmix                : F
+
+! budget fluxes through boundaries
+apply.budget.global.flux   : F
+budget.global.flux.lon_in  : -12
+budget.global.flux.lon_out :  36
+budget.global.flux.lat_in  :  34
+budget.global.flux.lat_out :  62
+
+! Non-Horizontally-Aggregated-Budgets
+write.column.budgets : T
+
+! profiling (subdir of output.dir)
+timing.output              : F
+timing.output.subdir       : tm5_profile
+!output.after.step         :
+
+!=====================================================================!
+! Optional output from 'PROJ/USER_OUTPUT' code
+!=====================================================================!
+! Grids setting (subdir of output.dir)
+settings.output          : F
+settings.output.subdir   : 
+
+! Station output
+output.station           : F
+inputdir.station         : 
+input.station.filename   : station.emep.list
+input.station.filename2  :
+input.station.fileformat : 1
+station.speclist         : SO2 NOy CH4 OH
+output.station.filename  : tm5_emep.hdf
+
+! Flight tracks
+output.flight            : F
+
+! All fields on root processor
+output.mix               : F
+output.mix.dhour         : 3
+
+! Aerocom output (cannot do -fpe0 with Aerocom output)
+output.aerocom          : F
+
+! Set output frequency to "hourly", "daily" or "monthly"
+output.aerocom.freq     : monthly
+output.aerocom.exper    : ${exp_name}
+output.aerocom.dhour    : 1
+output.aerocom.stations : F
+pm.sizelimits            : 2 5 10
+
+! General output
+output.general          : F
+output.general.freq     : monthly
+output.general.exper    : ${exp_name}
+output.general.dhour    : 1
+! all_chemistry: all or subset of gasphase compounds
+output.general.all_chemistry    : F
+output.general.2d       : T
+output.general.3d       : T
+
+! AerChemMIP and CRESCENDO output
+output.aerchemmip: T
+output.aerchemmip.1h: T
+! ** NOT IMPLEMENTED YET **
+! output.aerchemmip.dhour: 1
+output.aerchemmip.experiment: SOMETHING
+output.aerchemmip.realm: atmosChem
+output.aerchemmip.sourcetype: AP3
+output.aerchemmip.experimentid: ${exp_name}
+output.crescendo: F
+! Output for downscaling (FOCI project)
+output.downscaling: T
+! C4MIP output
+output.c4mip: T
+output.c4mip.1h: F
+output.c4mip.experiment: SOMETHING
+output.c4mip.realm: atmos
+output.c4mip.sourcetype: AP3
+output.c4mip.experimentid: ${exp_name}
+
+
+! diagnostic CCN
+input.diagnostic.CCN    : T
+input.supersat          : 8
+! supersaturation [%RH]
+supersat.values         : 0.05 0.1 0.2 0.3 0.5 0.7 1.0 1.4
+
+! NOAA output
+output.noaa              : F
+
+! Time Series
+output.pdump                        :  F
+output.pdump.dataset.author         :  John Doe
+output.pdump.dataset.institution    :  My Company, Somewhere
+output.pdump.dataset.version        :  ece3
+
+output.pdump.fname.model            :  TM5MP 
+output.pdump.fname.expid            :  r240
+output.pdump.fname.grid.glb300x200  :  glb3x2
+output.pdump.fname.grid.eur100x100  :  eur1x1
+
+output.pdump.griddef.apply          :  T
+
+output.pdump.tp.apply               :  F
+output.pdump.tp.dhour               :  3
+
+output.pdump.vmr.n                  :  3
+
+output.pdump.vmr.001.apply          :  T
+output.pdump.vmr.001.fname          :  vmr3
+output.pdump.vmr.001.dhour          :  3
+output.pdump.vmr.001.tracers        :  O3 CO NO
+
+output.pdump.vmr.002.apply          :  F
+output.pdump.vmr.002.fname          :  vmr1
+output.pdump.vmr.002.dhour          :  1
+output.pdump.vmr.002.tracers        :  O3 O3s CO CH2O
+output.pdump.vmr.002.subreg         :  F
+output.pdump.vmr.002.minlon         :  -10.
+output.pdump.vmr.002.maxlon         :  10.
+output.pdump.vmr.002.minlat         :  23.
+output.pdump.vmr.002.maxlat         :  57.
+
+output.pdump.vmr.003.apply          :  F
+output.pdump.vmr.003.fname          :  vmra
+output.pdump.vmr.003.dhour          :  3
+output.pdump.vmr.003.tracers        :  SO4 NO3_A BC BCS POM SS1_N SS1_M SS2_N SS2_M SS3_N SS3_M DUST2_N
+
+output.pdump.lt.apply               :  F
+output.pdump.lt.tracers             :  O3
+output.pdump.lt.localtime           :  2
+
+output.pdump.lt2.apply              :  F
+output.pdump.lt2.tracers            :  
+output.pdump.lt2.localtime          :  
+
+output.pdump.depositions.apply      :  F
+output.pdump.depositions.dhour      :  3
+output.pdump.depositions.tracers    :  O3 HNO3 NO NO2 H2O2 CH2O PAN CO NH3 NH4 SO2 NOy
+
+output.pdump.depvels.apply          :  F
+output.pdump.depvels.dhour          :  3
+output.pdump.depvels.tracers        :  O3 HNO3 NO NO2 H2O2 CH2O PAN CO NH3 NH4 SO2
+
+
